@@ -15,10 +15,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                               }
     end
     assert_template 'users/new'
-    
-    assert_select 'div#email'
-    assert_select 'div.<form-control>'
-    
   end
   
   test 'valid user signup' do
