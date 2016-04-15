@@ -37,5 +37,10 @@ class UsersControllerTest < ActionController::TestCase
     patch :update, id: @user, user: {name: @user.name, email: @user.email}
     assert_redirected_to root_path
   end
+  
+  test 'make sure users accessible to logged in' do
+    get :index
+    assert_redirected_to login_path
+  end
 
 end
