@@ -7,4 +7,13 @@ class ApplicationController < ActionController::Base
   # end
   include SessionsHelper
   
+  private
+      
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = "please log in"
+        store_location
+        redirect_to login_path
+      end
+    end
 end
